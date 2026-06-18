@@ -1,8 +1,8 @@
-# Falix LazyMC Discord Bot 🎮
+# DiscoMine 🎮
 
-A **24/7 LazyMC-style Discord bot** for Falix Minecraft servers, hosted on **WispByte**.
+A **24/7 Discord AFK bot (DiscoMine)** for Minecraft servers, hosted on **WispByte**.
 
-The bot keeps your Minecraft server alive with an AFK Mineflayer bot, monitors player count, and automatically "sleeps" the server when idle — just like LazyMC.
+DiscoMine keeps your Minecraft server alive with an AFK Mineflayer bot, monitors player count, and automatically "sleeps" the server when idle — using LazyMC-style idle logic.
 
 ---
 
@@ -10,11 +10,11 @@ The bot keeps your Minecraft server alive with an AFK Mineflayer bot, monitors p
 
 | Feature | Details |
 |---|---|
-| `/start` | Wakes the Falix server — AFK bot joins immediately |
+| `/start` | Wakes the Minecraft server — AFK bot joins immediately |
 | `/stop` | Puts server to sleep — AFK bot disconnects |
 | `/status` | Full server status with player count, uptime, idle timer |
 | **LazyMC idle detection** | Auto-disconnects when 0 players for N minutes |
-| **Anti-AFK routines** | Arm swing, look-around, micro-walk, sneak — avoids Falix kick |
+| **Anti-AFK routines** | Arm swing, look-around, micro-walk, sneak — avoids server AFK kick |
 | **Auto-reconnect** | Exponential backoff reconnect (never gives up unless stopped) |
 | **Discord presence** | Shows live player count in bot's status |
 | **Status channel** | Optional channel for auto-notifications |
@@ -22,6 +22,9 @@ The bot keeps your Minecraft server alive with an AFK Mineflayer bot, monitors p
 ---
 
 ## 🚀 Setup (WispByte)
+
+> [!TIP]
+> **Looking for a detailed, beginner-friendly guide?** Check out the step-by-step setup guide: **[WISPBYTE_SETUP.md](WISPBYTE_SETUP.md)**.
 
 ### 1. Create a Discord Bot
 1. Go to [discord.com/developers/applications](https://discord.com/developers/applications)
@@ -45,7 +48,7 @@ CLIENT_ID          = your_client_id
 GUILD_ID           = your_guild_id
 MC_SERVER_IP       = yourserver.falixsrv.me
 MC_SERVER_PORT     = 25565
-MC_USERNAME        = LazyAFKBot
+MC_USERNAME        = DiscoMineAFK
 MC_AUTH            = offline
 IDLE_TIMEOUT_MINUTES = 10
 STATUS_CHANNEL_ID  = (optional)
@@ -57,7 +60,7 @@ STATUS_CHANNEL_ID  = (optional)
 ### 4. First Run
 The bot will **automatically**:
 - Register `/start`, `/stop`, `/status` slash commands in your server
-- Start the AFK bot and connect to your Falix server
+- Start the AFK bot and connect to your Minecraft server
 - Begin monitoring player count
 
 ---
@@ -65,18 +68,18 @@ The bot will **automatically**:
 ## 🧠 How LazyMC Logic Works
 
 ```
-Player Joins Falix Server
+Player Joins Minecraft Server
        │
        ▼
 AFK Bot already connected ──→ Server stays AWAKE ✅
        │
        │  (nobody plays for IDLE_TIMEOUT_MINUTES)
        ▼
-AFK Bot DISCONNECTS ──→ Falix idles/sleeps server 💤
+AFK Bot DISCONNECTS ──→ Server idles/sleeps 💤
        │
        │  (player or /start command)
        ▼
-AFK Bot RECONNECTS ──→ Falix wakes server up 🚀
+AFK Bot RECONNECTS ──→ Server wakes up 🚀
 ```
 
 - The AFK bot itself does **not** count as a real player
@@ -94,9 +97,9 @@ All config is done via environment variables — **no code editing needed**.
 | `DISCORD_TOKEN` | *(required)* | Discord bot token |
 | `CLIENT_ID` | *(required)* | Discord application client ID |
 | `GUILD_ID` | *(required)* | Your Discord server ID |
-| `MC_SERVER_IP` | *(required)* | Falix server address |
-| `MC_SERVER_PORT` | `25565` | Falix server port |
-| `MC_USERNAME` | `LazyAFKBot` | AFK bot Minecraft username |
+| `MC_SERVER_IP` | *(required)* | Minecraft server address |
+| `MC_SERVER_PORT` | `25565` | Minecraft server port |
+| `MC_USERNAME` | `DiscoMineAFK` | AFK bot Minecraft username |
 | `MC_PASSWORD` | *(empty)* | Leave empty for offline/cracked |
 | `MC_AUTH` | `offline` | `offline` for cracked, `microsoft` for premium |
 | `IDLE_TIMEOUT_MINUTES` | `10` | Minutes idle before auto-sleep |
@@ -107,13 +110,15 @@ All config is done via environment variables — **no code editing needed**.
 ## 📁 File Structure
 
 ```
-FalixLazyBot/
-├── index.js        ← Discord bot + command handler
-├── minecraft.js    ← LazyMC AFK bot + idle detection
-├── config.js       ← Env var loader
-├── package.json    ← Dependencies
-├── .env.example    ← Template (copy to .env for local testing)
-└── README.md       ← This file
+DiscoMine/
+├── index.js          ← Discord bot + command handler
+├── minecraft.js      ← LazyMC AFK bot + idle detection
+├── config.js         ← Env var loader
+├── package.json      ← Dependencies
+├── .env.example      ← Template (copy to .env for local testing)
+├── LICENSE           ← GNU GPLv3 license terms
+├── WISPBYTE_SETUP.md ← Dedicated hosting setup guide
+└── README.md         ← This main file
 ```
 
 ---
@@ -134,3 +139,10 @@ npm start
 
 ---
 
+## 📄 License
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+
+---
+
+*DiscoMine • A 24/7 Discord AFK bot for Minecraft servers built with Discord.js + Mineflayer*

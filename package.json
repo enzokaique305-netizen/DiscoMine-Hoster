@@ -1,14 +1,14 @@
 {
-  "name": "falix-lazy-bot",
+  "name": "discomine",
   "version": "1.0.0",
-  "description": "24/7 Discord AFK bot for Falix Minecraft servers — hosted on WispByte",
+  "description": "DiscoMine — 24/7 Discord AFK bot for Minecraft servers, hosted on WispByte",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "node index.js"
   },
   "author": "",
-  "license": "MIT",
+  "license": "GPL-3.0-only",
   "engines": {
     "node": ">=18"
   },
