@@ -134,4 +134,3 @@ npm start
 
 ---
 
-*Built for Falix + WispByte • LazyMC philosophy in Discord.js + Mineflayer*
