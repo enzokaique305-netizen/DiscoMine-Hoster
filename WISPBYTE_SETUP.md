@@ -114,7 +114,6 @@ We configure the bot using WispByte's secure environment settings rather than a 
 | `MC_SERVER_PORT` | Minecraft server port (Default is `25565`). | `25565` |
 | `MC_USERNAME` | The username the AFK bot will display in Minecraft. | `DiscoMineAFK` |
 | `MC_AUTH` | Authentication mode (`offline` for cracked, `microsoft` for premium). | `offline` |
-| `IDLE_TIMEOUT_MINUTES` | Minutes with 0 players before the bot disconnects to let the server sleep. | `10` |
 | `STATUS_CHANNEL_ID` | *(Optional)* Discord channel ID for status updates. | `112233445566778899` |
 
 3. **Verify Start Command**:

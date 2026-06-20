@@ -50,7 +50,6 @@ MC_SERVER_IP       = yourserver.falixsrv.me
 MC_SERVER_PORT     = 25565
 MC_USERNAME        = DiscoMineAFK
 MC_AUTH            = offline
-IDLE_TIMEOUT_MINUTES = 10
 STATUS_CHANNEL_ID  = (optional)
 ```
 
@@ -65,26 +64,22 @@ The bot will **automatically**:
 
 ---
 
-## 🧠 How LazyMC Logic Works
+## 🧠 How the Bot Works
 
 ```
 Player Joins Minecraft Server
        │
        ▼
-AFK Bot already connected ──→ Server stays AWAKE ✅
+AFK Bot disconnects ──→ Let the player play ✅
        │
-       │  (nobody plays for IDLE_TIMEOUT_MINUTES)
+       │  (all players leave)
        ▼
-AFK Bot DISCONNECTS ──→ Server idles/sleeps 💤
-       │
-       │  (player or /start command)
-       ▼
-AFK Bot RECONNECTS ──→ Server wakes up 🚀
+AFK Bot CONNECTS ──→ Server stays AWAKE 24/7 🚀
 ```
 
-- The AFK bot itself does **not** count as a real player
-- Idle timer resets the moment any real player joins
-- `/stop` is an immediate manual sleep — no idle timer involved
+- The bot keeps the server awake 24/7 when no real players are online.
+- When a real player joins, the bot leaves to save server resources.
+- `/stop` is an immediate manual sleep if you want to turn it off.
 
 ---
 
@@ -102,7 +97,6 @@ All config is done via environment variables — **no code editing needed**.
 | `MC_USERNAME` | `DiscoMineAFK` | AFK bot Minecraft username |
 | `MC_PASSWORD` | *(empty)* | Leave empty for offline/cracked |
 | `MC_AUTH` | `offline` | `offline` for cracked, `microsoft` for premium |
-| `IDLE_TIMEOUT_MINUTES` | `10` | Minutes idle before auto-sleep |
 | `STATUS_CHANNEL_ID` | *(optional)* | Discord channel for auto-notifications |
 
 ---
